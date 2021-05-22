@@ -8,10 +8,11 @@
   },
   "dependencies": {
     "fastify": "^3.0.0",
-    "fastify-plugin": "^3.0.0",
     "fastify-autoload": "^3.3.1",
-    "fastify-sensible": "^3.1.0",
-    "fastify-cli": "^2.12.0"
+    "fastify-cli": "^2.12.0",
+    "fastify-cors": "^6.0.1",
+    "fastify-plugin": "^3.0.0",
+    "fastify-sensible": "^3.1.0"
   },
   "devDependencies": {
     "tap": "^15.0.9"
