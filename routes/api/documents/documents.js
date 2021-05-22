@@ -42,7 +42,22 @@ const docOptions = {
 module.exports = async function (fastify, opts) {
   // read
   fastify.get("/", async function (request, reply) {
-    reply.status(200).send(data);
+
+    const page = parseInt(request.query.page);
+    const limit =parseInt(request.query.limit);
+
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+
+    const response = {} 
+
+    response.next = {page: page+1, limit}
+    response.previous = { page: page - 1, limit };
+
+    response.data = data.slice(startIndex, endIndex);
+
+    reply.status(200).send(response);
+    
   });
 
   fastify.post("/",docOptions, async function (request, reply) {
