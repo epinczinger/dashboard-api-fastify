@@ -50,8 +50,12 @@ module.exports = async function (fastify, opts) {
 
     const response = {};
 
-    response.next = { page: page + 1, limit };
-    response.previous = { page: page - 1, limit };
+    if (endIndex < data.length) {
+      response.next = { page: page + 1, limit };
+    }
+    if (startIndex > 0) {
+      response.previous = { page: page - 1, limit };
+    }
 
     response.data = data.slice(startIndex, endIndex);
 
