@@ -5,14 +5,9 @@ const AutoLoad = require('fastify-autoload')
 
 module.exports = async function (fastify, opts) {
   fastify.register(require("fastify-cors"), {
-    origin: (origin, cb) => {
-      if (/localhost/.test(origin)) {
-        cb(null, true);
-        return;
-      }
-      cb(new Error("Not allowed"));
+    origin: '*',
     },
-  });
+  );
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins
