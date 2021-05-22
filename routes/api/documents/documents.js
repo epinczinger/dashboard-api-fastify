@@ -42,25 +42,23 @@ const docOptions = {
 module.exports = async function (fastify, opts) {
   // read
   fastify.get("/", async function (request, reply) {
-
     const page = parseInt(request.query.page);
-    const limit =parseInt(request.query.limit);
+    const limit = parseInt(request.query.limit);
 
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
 
-    const response = {} 
+    const response = {};
 
-    response.next = {page: page+1, limit}
+    response.next = { page: page + 1, limit };
     response.previous = { page: page - 1, limit };
 
     response.data = data.slice(startIndex, endIndex);
 
     reply.status(200).send(response);
-    
   });
 
-  fastify.post("/",docOptions, async function (request, reply) {
+  fastify.post("/", docOptions, async function (request, reply) {
     const { status, channel, name, group, date, type, adress } = request.body;
 
     const newDoc = {
@@ -84,7 +82,7 @@ module.exports = async function (fastify, opts) {
 
 const data = [
   {
-    id: "1",
+    id: 1,
     status: "Received",
     channel: "PDF",
     name: "Ant design",
@@ -94,7 +92,7 @@ const data = [
     adress: "/localhost",
   },
   {
-    id: "2",
+    id: 2,
     status: "Received",
     channel: "SMS",
     name: "Laboris somehitng",
@@ -104,7 +102,7 @@ const data = [
     adress: "/localhost1",
   },
   {
-    id: "3",
+    id: 3,
     status: "Folded",
     channel: "SMS",
     name: "Ant design",
@@ -114,7 +112,7 @@ const data = [
     adress: "/localhost",
   },
   {
-    id: "4",
+    id: 4,
     status: "Received",
     channel: "PDF",
     name: "Laboris somehitng",
@@ -124,7 +122,7 @@ const data = [
     adress: "/localhost2",
   },
   {
-    id: "5",
+    id: 5,
     status: "Received",
     channel: "PDF",
     name: "Ant design",
@@ -134,7 +132,7 @@ const data = [
     adress: "/localhost",
   },
   {
-    id: "6",
+    id: 6,
     status: "Folded",
     channel: "SMS",
     name: "Laboris somehitng",
@@ -144,7 +142,7 @@ const data = [
     adress: "/localhost1",
   },
   {
-    id: "7",
+    id: 7,
     status: "Received",
     channel: "SMS",
     name: "Ant design",
@@ -154,7 +152,7 @@ const data = [
     adress: "/localhost",
   },
   {
-    id: "8",
+    id: 8,
     status: "Received",
     channel: "PDF",
     name: "Laboris somehitng",
@@ -164,7 +162,7 @@ const data = [
     adress: "/localhost2",
   },
   {
-    id: "9",
+    id: 9,
     status: "Received",
     channel: "PDF",
     name: "Ant design",
@@ -174,7 +172,7 @@ const data = [
     adress: "/localhost",
   },
   {
-    id: "10",
+    id: 10,
     status: "Printed",
     channel: "SMS",
     name: "Laboris somehitng",
@@ -184,7 +182,7 @@ const data = [
     adress: "/localhost1",
   },
   {
-    id: "11",
+    id: 11,
     status: "Printed",
     channel: "SMS",
     name: "Ant design",
@@ -194,7 +192,7 @@ const data = [
     adress: "/localhost",
   },
   {
-    id: "12",
+    id: 12,
     status: "Printed",
     channel: "PDF",
     name: "Laboris somehitng",
@@ -204,7 +202,7 @@ const data = [
     adress: "/localhost2",
   },
   {
-    id: "13",
+    id: 13,
     status: "Printed",
     channel: "SMS",
     name: "Laboris somehitng",
@@ -214,7 +212,7 @@ const data = [
     adress: "/localhost1",
   },
   {
-    id: "14",
+    id: 14,
     status: "Printed",
     channel: "SMS",
     name: "Ant design",
@@ -224,7 +222,7 @@ const data = [
     adress: "/localhost",
   },
   {
-    id: "15",
+    id: 15,
     status: "Printed",
     channel: "PDF",
     name: "Laboris somehitng",
